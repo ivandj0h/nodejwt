@@ -43,4 +43,4 @@ to Run the Application just typing this command on your Terminal
 
 ### ScreenShoot
 
-![Dashboard](public/img/captured.png "This is the Home chat's captured")
+![Dashboard](captured/postman.png "This is the Home chat's captured")
