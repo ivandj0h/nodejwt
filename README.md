@@ -15,24 +15,23 @@ Feel free to download or clone this.
       - npm install
 
 if you want to automatically restarting the node application when file changes in the directory 
-are detectedyou then can add more dependencies like Nodemon & save it into devDependencies
+are detected you then can add dependencies like Nodemon & save it into devDependencies
       
-      using NPM
       - npm install -D nodemon
       
-or you can install nodemon globally on your computer so you can access it anywhere on your terminal
+or you can install nodemon globally on your computer so you can access it anywhere on your terminal/command
 
       - npm install nodemon -g
 
 ## Run Application
 
-before run the application after install nodemon as a dev-dependencies into your application please change this line on your package.json file
+Before you run the application after install nodemon as a dev-dependencies into your application please change the line on your package.json file with this code
 
       "scripts": {
             "start": "nodemon index.js"
       },
 
-after you do that, then you can open the command and typing :
+after you do that, then you can open the terminal/command and typing :
 
       npm start
 
