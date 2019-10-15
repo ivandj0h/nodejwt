@@ -3,13 +3,13 @@
 ## About 
 
       NodeJWT is a Simple Application was developed using NodeJS and combine it using JWT.
-      the reason why i made this application because i want to explore more about NodeJS &
+      the reason why i made this application because i want to explore more about NodeJS, JWT, MongoDB &
       how powerfull is it.
 
 
 ## Installation
 
-if you are interested in developing or improve it, feel free to download or clone this.
+Feel free to download or clone this.
 
       - git clone https://github.com/ivandi1980/nodejwt.git
       - npm install
@@ -28,21 +28,13 @@ or you can install nodemon globally on your computer so you can access it anywhe
 
 before run the application after install nodemon as a dev-dependencies into your application please change this line on your package.json file
 
-``bash
-
       "scripts": {
-      "start": "nodemon index.js"
+            "start": "nodemon index.js"
       },
-
-``
 
 after you do that, then you can open the command and typing :
 
-``bash
-
       npm start
-
-``
 
 ### ScreenShoot
 
