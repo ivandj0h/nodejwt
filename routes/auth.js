@@ -9,17 +9,25 @@ const User = require('../model/User');
 
 // The Validation
 const Joi = require('@hapi/joi');
-const schema = {
+
+// Register Schema
+const schemaReg = {
     name: Joi.string().min(6).required(),
     email: Joi.string().min(6).required().email(),
     password: Joi.string().min(6).required()
 }
 
-//Creating The Actual Router Register
+// Login Schema
+const schemaLog = {
+    email: Joi.string().min(6).required().email(),
+    password: Joi.string().min(6).required()
+};
+
+// Register Router
 router.post('/register', async (req, res) => {
 
     // Validate the data before creating a user
-    const {error} = Joi.validate(req.body, schema);
+    const {error} = Joi.validate(req.body, schemaReg);
     //res.send(validation);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -45,6 +53,35 @@ router.post('/register', async (req, res) => {
             username: user.name,
             created_at: user.date,
             message: 'Congradulation, User was Created Successfully!'
+        });
+    }catch(err) {
+        res.status(400).send(err);
+    }
+});
+
+
+// Login Router
+router.post('/login', async (req, res) => {
+
+    // Validate the data before Login
+    const {error} = Joi.validate(req.body, schemaLog);
+    //res.send(validation);
+    if(error) return res.status(400).send(error.details[0].message);
+
+    // Checking the validate email
+    const user = await User.findOne({email: req.body.email});
+    if(!user) return res.status(400).send('Email isn\'t found!');
+
+    // checking the validate password
+    const validPass = await bcrypt.compare(req.body.password, user.password);
+    if(!validPass) return res.status(400).send('Invalid Password!');
+
+    try {
+        res.send({
+            userId: user.id,
+            username: user.name,
+            created_at: user.date,
+            message: 'Congradulation, Welcome to My Paradise!'
         });
     }catch(err) {
         res.status(400).send(err);

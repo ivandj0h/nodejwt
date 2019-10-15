@@ -16,10 +16,9 @@ const authRoute = require('./routes/auth');
 const mongoose = require('mongoose');
 
 // Connecting to Database
-mongoose.connect(process.env.DB_CONNECT,  { useUnifiedTopology: true }, { useNewUrlParser: true }, () => console.log('You\'re now Connected to the MongoDB on Port 27017...'));
+mongoose.connect(process.env.DB_CONNECT,  { useUnifiedTopology: true }, () => console.log('You\'re now Connected to the MongoDB on Port 27017...'));
 
 // Middlewares
-//app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
