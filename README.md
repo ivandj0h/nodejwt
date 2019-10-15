@@ -39,5 +39,7 @@ after you do that, then you can open the terminal/command and typing :
 
 ![Dashboard](captured/Capture_success.png "This is the Insomnia captured")
 
+![Dashboard](captured/Capture_token.png "This is the MongoDB captured")
+
 ![Dashboard](captured/Capture_databases.png "This is the MongoDB captured")
 

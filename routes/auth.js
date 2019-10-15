@@ -4,6 +4,9 @@ const router = require('express').Router();
 // Adding Bcrypt Hashing Password
 const bcrypt = require('bcryptjs');
 
+// Adding JsonWebToken
+const jwt = require('jsonwebtoken');
+
 // Adding User Model
 const User = require('../model/User');
 
@@ -76,16 +79,13 @@ router.post('/login', async (req, res) => {
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if(!validPass) return res.status(400).send('Invalid Password!');
 
-    try {
-        res.send({
-            userId: user.id,
-            username: user.name,
-            created_at: user.date,
-            message: 'Congradulation, Welcome to My Paradise!'
-        });
-    }catch(err) {
-        res.status(400).send(err);
-    }
+    // Create and assign the Token
+    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET);
+    res.header('auth-token', token).send(token)
+
+    // res.send({
+    //     message: `Congradulation ${user.name}, Welcome to My Paradise!`
+    // });
 });
 
 // Export this Router
