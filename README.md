@@ -6,7 +6,6 @@
       the reason why i made this application because i want to explore more about NodeJS, JWT, MongoDB &
       how powerfull is it.
 
-
 ## Installation
 
 Feel free to download or clone this.

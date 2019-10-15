@@ -10,9 +10,14 @@ router.get('/', verify, (req, res) => {
     res.json({
         post: {
             title: 'my first post',
-            description: 'This is my first post that use for this blog'
+            description: 'This is my first post that use for this blog',
+            user_logged: req.user
         }
     });
+
+    // just example below if we wants to get the user data
+    //res.send(req.user);
+    //User.findbyOne({_id: req.user})
 });
 
 
