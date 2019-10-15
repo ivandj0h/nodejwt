@@ -13,25 +13,24 @@ const schema = {
 }
 
 //Creating The Actual Router Register
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
 
     // Validate the data before creating a user
-    const validation = Joi.validate(req.body, schema);
-    res.send(validation);
+    const {error} = Joi.validate(req.body, schema);
+    //res.send(validation);
+    if(error) return res.status(400).send(error.details[0].message);
 
-
-
-    // const user = new User({
-    //     name: req.body.name,
-    //     email: req.body.email,
-    //     password: req.body.password
-    // });
-    // try {
-    //     const savedUser = await user.save();
-    //     res.send(savedUser);
-    // }catch(err) {
-    //     res.status(400).send(err);
-    // }
+    const user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+    });
+    try {
+        const savedUser = await user.save();
+        res.send(savedUser);
+    }catch(err) {
+        res.status(400).send(err);
+    }
 });
 
 // Export this Router
