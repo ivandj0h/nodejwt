@@ -1,5 +1,6 @@
 // Adding the Express Framework
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // Initialize The Express
 const app = express();
@@ -15,10 +16,12 @@ const authRoute = require('./routes/auth');
 const mongoose = require('mongoose');
 
 // Connecting to Database
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => console.log('You\'re now Connected to the MongoDB Atlas...'));
+mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => console.log('You\'re now Connected to the MongoDB on Port 27017...'));
 
 // Middlewares
-app.use(express.json());
+//app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Route Middlewares
 app.use('/api/user', authRoute);
