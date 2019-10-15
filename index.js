@@ -1,18 +1,21 @@
-// Adding the Express Framework
+// Imports the Express Framework
 const express = require('express');
 const bodyParser = require('body-parser');
 
 // Initialize The Express
 const app = express();
 
-// Adding .env
+// Imports .env
 const dotenv = require('dotenv');
 dotenv.config();
 
 // Importing The Routes
 const authRoute = require('./routes/auth');
 
-// Adding Mongoose
+// Importing Posts Routes
+const postRoutes = require('./routes/posts');
+
+// Imports Mongoose
 const mongoose = require('mongoose');
 
 // Connecting to Database
@@ -24,6 +27,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // Route Middlewares
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoutes);
+
 
 // Running The NodeJS Server
 app.listen(3000, () => console.log('Server Running...'));

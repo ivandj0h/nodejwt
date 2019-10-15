@@ -1,13 +1,13 @@
-// Adding the Express Router
+// Imports the Express Router
 const router = require('express').Router();
 
-// Adding Bcrypt Hashing Password
+// Imports Bcrypt Hashing Password
 const bcrypt = require('bcryptjs');
 
-// Adding JsonWebToken
+// Imports JsonWebToken
 const jwt = require('jsonwebtoken');
 
-// Adding User Model
+// Imports User Model
 const User = require('../model/User');
 
 // The Validation
