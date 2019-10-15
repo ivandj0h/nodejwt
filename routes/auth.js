@@ -17,9 +17,8 @@ router.post('/register', (req, res) => {
 
     // Validate the data before creating a user
     const validation = Joi.validate(req.body, schema);
+    res.send(validation);
 
-
-        res.send(validation);
 
 
     // const user = new User({

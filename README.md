@@ -43,6 +43,8 @@ to Run the Application just typing this command on your Terminal
 
 ### ScreenShoot
 
-![Dashboard](captured/postman.png "This is the Home chat's captured")
+![Dashboard](captured/postman.png "This is the Postman captured")
 
-![Dashboard](captured/mongo_.png "This is the Home chat's captured")
+![Dashboard](captured/mongo_.png "This is the MongoDB captured")
+
+![Dashboard](captured/insomnia.png "This is the Validate captured")
